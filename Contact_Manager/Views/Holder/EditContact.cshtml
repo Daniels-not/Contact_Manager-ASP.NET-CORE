@@ -1,0 +1,47 @@
+﻿@model ContactsModel
+@{
+    ViewData["Title"] = "EditContact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container position-absolute top-50 start-50 translate-middle">
+  <div class="row">
+    <div class="col me-lg-4">
+       <img src="~/images/Notification.svg" class="card-img" alt="StartUp Illustration" >
+    </div>
+    <div class="col">
+       <form asp-action="EditContact" asp-controller="Holder" method="post">
+         <div class="form-group my-3">
+           <label for="contact_name" class="my-2">Contact ID</label>
+           <input type="hidden" asp-for="ContactID" class="form-control">
+         </div>
+         <div class="form-group my-3">
+           <label for="contact_name" class="my-2">Contact Name</label>
+           <input type="text" asp-for="ContactName" class="form-control">
+           <span asp-validation-for="ContactName" class="text-danger"></span>
+         </div>
+         <div class="form-group">
+           <label for="telephone" class="my-2">Telephone</label>
+           <input type="tel" asp-for="Telephone" class="form-control">
+           <span asp-validation-for="Telephone" class="text-danger"></span>
+         </div>
+         <div class="form-group my-3">
+           <label for="email" class="my-2">Email address</label>
+           <input type="email" asp-for="Email" class="form-control" aria-describedby="emailHelp">
+           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+           <span asp-validation-for="Email" class="text-danger"></span>
+         </div>
+         <div class="form-group my-3 date">
+               <label for="password" class="my-2">Date Added</label>
+               <input type="date" data-date="" data-date-format="YYYY MM DD" class="form-control" asp-for="DateAdded">
+               <span asp-validation-for="DateAdded" class="text-danger"></span>
+         </div>
+         <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary">Save Contact</button>
+            <button type="submit" class="btn btn-secondary" asp-action="GetContacts" asp-controller="Holder">Go Back</button>
+         </div>
+       </form>
+    </div>
+  </div>
+</div>
+

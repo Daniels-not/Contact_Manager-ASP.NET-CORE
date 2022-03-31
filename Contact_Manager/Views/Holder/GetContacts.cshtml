@@ -1,0 +1,37 @@
+﻿@model List<ContactsModel>
+@{
+    ViewData["Title"] = "GetContacts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <a class="btn btn-secondary my-3" asp-action="SaveContact" asp-controller="Holder">Create new Contact</a>
+    
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Contact Name</th>
+                <th>Telephone</th>
+                <th>Email</th>
+                <th>Date Added</th>
+            </tr>
+        </thead>
+        <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.ContactName</td>
+                        <td>@item.Telephone</td>
+                        <td>@item.Email</td>
+                        <td>@item.DateAdded</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" asp-action="EditContact" asp-controller="Holder" asp-route-ContactID="@item.ContactID">Edit</a>
+                        </td>
+                    </tr>
+                }
+        </tbody>
+      </table>
+    </div>
+</div>
+
