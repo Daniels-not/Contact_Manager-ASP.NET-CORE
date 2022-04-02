@@ -4,7 +4,7 @@
 
 ## Instructions 📑
 
-
+Contact Manager is a web application made with ASP.NET CORE, which allow you to add, delete, edit , and update a contact
 
 ## Functionalities ✨
 
